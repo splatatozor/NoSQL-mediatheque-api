@@ -2,9 +2,8 @@
 
 
 var mongoose = require('mongoose'),
-    Album = mongoose.model('album');
-
-var Artistes = {};
+    Album = mongoose.model('album'),
+    Artiste = mongoose.model('artiste');
 
 exports.getAlbums = function(req, res) {
     Album.find({}, function(err, album) {
@@ -15,11 +14,11 @@ exports.getAlbums = function(req, res) {
 };
 
 
-exports.getArtistesDisctinct = function (req, res) {
-    Album.distinct('art_nom', function(err, artiste) {
+exports.getArtistes = function (req, res) {
+    Artiste.find({}, function(err, artiste) {
         if (err)
             res.send(err);
-        Artistes = res.json(artiste);
+        res.json(artiste);
     });
 };
 

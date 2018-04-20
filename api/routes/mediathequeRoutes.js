@@ -8,7 +8,7 @@ module.exports = function(app) {
 
     // Mediatheque Routes
     app.route('/artistes')
-        .get(mediatheque.getArtistesDisctinct)
+        .get(mediatheque.getArtistes)
 
 
 
